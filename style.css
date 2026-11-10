@@ -1,0 +1,237 @@
+body {
+    margin: 0;
+    padding: 24px 16px;
+    box-sizing: border-box;
+    min-height: 100vh;
+    font-family: "Hiragino Sans", "Meiryo", sans-serif;
+    text-align: center;
+    color: #fff;
+    /* 白と水色の市松模様 (1マス40px。80px四方を1セットにして繰り返す) */
+    background: conic-gradient(
+        #cfeeff 25%,
+        #ffffff 0 50%,
+        #cfeeff 0 75%,
+        #ffffff 0
+    ) 0 0 / 80px 80px;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+/* 白い文字がくっきり見えるよう、カードは濃い紺色 */
+.container {
+    max-width: 720px;
+    margin: 24px auto;
+    padding: 24px 32px 28px;
+    background: #12304f;
+    color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+h1 {
+    margin-top: 0;
+    color: #ffffff;
+}
+
+h2 {
+    margin-top: 0;
+    color: #ffffff;
+}
+
+/* ---------- スタート画面 ---------- */
+.big {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 24px 0 12px;
+}
+
+.rules {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #cfe8ff;
+    white-space: pre-line;
+}
+
+/* ---------- タイマー ---------- */
+.timebar {
+    height: 12px;
+    background: #2a4d73;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+#timebar-fill {
+    height: 100%;
+    width: 100%;
+    background: #4ade80;
+}
+
+.time-text {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 8px 0 0;
+}
+
+.timer.danger #timebar-fill {
+    background: #ff5c5c;
+}
+
+.timer.danger .time-text {
+    color: #ff8a8a;
+}
+
+/* ---------- お題 ---------- */
+#progress {
+    color: #9bb5d0;
+    margin: 12px 0 0;
+}
+
+#text {
+    font-size: 40px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 8px 0 4px;
+}
+
+#kana {
+    font-size: 18px;
+    color: #cfe8ff;
+    margin: 0 0 16px;
+}
+
+/* ローマ字: 太い等幅フォントのくっきりした白 */
+#romaji {
+    font-family: "SF Mono", Menlo, Consolas, "Roboto Mono", monospace;
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    min-height: 1.5em;
+    margin: 8px 0 16px;
+    overflow-wrap: anywhere;
+}
+
+#rest {
+    color: #ffffff;   /* まだ打っていない部分 */
+}
+
+#typed {
+    color: #4ade80;   /* 打てた部分 */
+}
+
+.status {
+    font-size: 20px;
+    margin: 0;
+}
+
+.hint {
+    font-size: 13px;
+    color: #9bb5d0;
+    margin: 16px 0 0;
+}
+
+/* ---------- 結果画面 ---------- */
+#result-score {
+    font-size: 56px;
+    font-weight: 700;
+    color: #ffd54a;
+    margin: 8px 0 16px;
+}
+
+.breakdown {
+    margin: 0 auto 16px;
+    border-collapse: collapse;
+    font-size: 17px;
+}
+
+.breakdown th,
+.breakdown td {
+    padding: 4px 14px;
+    text-align: right;
+}
+
+.breakdown th {
+    text-align: left;
+    color: #9bd0ff;
+}
+
+#entry {
+    margin: 12px 0;
+}
+
+#entry p {
+    margin: 0 0 8px;
+}
+
+#name {
+    font-size: 18px;
+    padding: 6px 10px;
+    border: 2px solid #9bd0ff;
+    border-radius: 8px;
+    width: 160px;
+}
+
+button {
+    font-size: 16px;
+    padding: 7px 16px;
+    border: none;
+    border-radius: 8px;
+    background: #4ade80;
+    color: #0b2239;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+button.sub {
+    background: #3b5f85;
+    color: #ffffff;
+}
+
+#result-message {
+    min-height: 1.5em;
+    font-weight: 700;
+    color: #4ade80;
+}
+
+/* ---------- ランキング ---------- */
+.ranking-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 16px;
+    font-size: 16px;
+}
+
+.ranking-table th {
+    color: #9bd0ff;
+    border-bottom: 2px solid #2a4d73;
+    padding: 6px 4px;
+}
+
+.ranking-table td {
+    padding: 6px 4px;
+    border-bottom: 1px solid #234263;
+}
+
+.ranking-table tr.me td {
+    background: #1f5a8a;
+    font-weight: 700;
+}
+
+.ranking-table td.empty {
+    color: #9bb5d0;
+    padding: 16px 4px;
+}
+
+/* ---------- ミスしたときの画面の揺れ(1回) ---------- */
+.shake {
+    animation: shake 0.3s;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%      { transform: translateX(-12px); }
+    40%      { transform: translateX(12px); }
+    60%      { transform: translateX(-8px); }
+    80%      { transform: translateX(8px); }
+}

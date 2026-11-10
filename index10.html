@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>タイピング練習</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ゲーム本体(ミスしたときはこのカードが揺れる) -->
+    <div class="container" id="container">
+        <h1>タイピング練習</h1>
+
+        <!-- スタート前の画面 -->
+        <section id="start-panel">
+            <p class="big">Enterキーでスタート</p>
+            <p id="rules" class="rules"></p>
+        </section>
+
+        <!-- プレイ中の画面 -->
+        <section id="game-panel" hidden>
+            <div class="timer" id="timer">
+                <div class="timebar"><div id="timebar-fill"></div></div>
+                <p class="time-text">残り <span id="time"></span> 秒</p>
+            </div>
+            <p id="progress"></p>
+            <p id="text"></p>
+            <p id="kana"></p>
+            <p id="romaji"><span id="typed"></span><span id="rest"></span></p>
+            <p class="status">ミス: <span id="miss">0</span></p>
+        </section>
+
+        <!-- 結果の画面 -->
+        <section id="result-panel" hidden>
+            <h2 id="result-title"></h2>
+            <p id="result-score"></p>
+            <table class="breakdown">
+                <tr><th>クリア</th><td id="bd-clear"></td><td id="bd-clear-pt"></td></tr>
+                <tr><th>残り時間</th><td id="bd-time"></td><td id="bd-time-pt"></td></tr>
+                <tr><th>ミス</th><td id="bd-miss"></td><td id="bd-miss-pt"></td></tr>
+            </table>
+            <div id="entry" hidden>
+                <p>ランキングに登録できます!</p>
+                <input id="name" type="text" maxlength="12" placeholder="名前" autocomplete="off">
+                <button id="entry-ok" type="button">登録</button>
+                <button id="entry-skip" type="button" class="sub">登録しない</button>
+            </div>
+            <p id="result-message"></p>
+        </section>
+
+        <p class="hint">※ 半角英数モードで入力してください</p>
+    </div>
+
+    <!-- ランキング(このブラウザの中に保存される) -->
+    <div class="container ranking">
+        <h2>ランキング TOP10</h2>
+        <table class="ranking-table">
+            <thead>
+                <tr><th>順位</th><th>名前</th><th>得点</th><th>クリア</th><th>ミス</th><th>タイム</th></tr>
+            </thead>
+            <tbody id="ranking-body"></tbody>
+        </table>
+        <button id="ranking-reset" type="button" class="sub">ランキングをリセット</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
